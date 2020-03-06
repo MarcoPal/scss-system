@@ -1,0 +1,11 @@
+$breakpoints: (
+  sm: 0,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+) !default;
+
+/*
+Also valid
+$breakpoints: 0, 768px, 1024px, 1280px;
+*/

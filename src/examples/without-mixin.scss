@@ -1,0 +1,24 @@
+.block {
+  font-family: "lucida grande", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  display: block;
+  background: black;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+    color: black;
+    display: flex;
+    background: white;
+  }
+  @media (min-width: 1024px) {
+    .block {
+      font-size: 3rem;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+}

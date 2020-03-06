@@ -1,0 +1,12 @@
+.block {
+   @include system((
+     font-family: '"lucida grande", Arial, sans-serif',
+     font-size: (1rem, 2rem, 3rem),
+     font-weight: 700,
+     color: (white, black),
+     display: (block, flex),
+     bg: (black, white),
+     mx: (10px, null, 20px),
+     p: 10px
+   ));
+ }

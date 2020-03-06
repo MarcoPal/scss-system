@@ -1,0 +1,7 @@
+@function list-to-map($values) {
+  $map: ();
+  @for $i from 1 through length($values) {
+    $map: map-merge($map, ($i: nth($values, $i)));
+  }
+  @return $map;
+}

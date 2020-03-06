@@ -1,0 +1,9 @@
+@function init-responsive-map($breakpoints) {
+  $responsive-map: ();
+  $breakpoints_keys: map-keys($breakpoints);
+  @for $i from 2 through length($breakpoints_keys) {
+    $breakpoint: nth($breakpoints_keys, $i);
+    $responsive-map: map-merge($responsive-map, ($breakpoint: ()));
+  }
+  @return $responsive-map;
+}

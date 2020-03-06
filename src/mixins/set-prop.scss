@@ -1,0 +1,13 @@
+@mixin set-prop($key, $value) {
+  @if map_has_key($aliases, $key) {
+    $props: map-get($aliases, $key);
+    @if (type_of($props) != list) {
+      $props: ($props,);
+    }
+    @each $prop in $props {
+      #{$prop}: sanitize($value);
+    }
+  } @else {
+    #{$key}: sanitize($value);
+  }
+}

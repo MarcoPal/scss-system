@@ -1,0 +1,52 @@
+@mixin system($props) {
+  // Sanitize $breakpoints
+  $sys-breakpoints: $breakpoints;
+  @if (type_of($sys-breakpoints) == list) {
+    $sys-breakpoints: list-to-map($sys-breakpoints);
+  }
+  $responsive-props: init-responsive-map($sys-breakpoints);
+  // Start the magic
+  @each $prop in $props {
+    $key: nth($prop, 1);
+    $values: nth($prop, 2);
+    @if type_of($values) != list {
+      // Convert values in list
+      $values: ($values,);
+    } @else {
+      $values: inspect($values);
+      $values: str-split($values, ',');
+    }
+    // Get the value for each prop
+    @for $i from 1 through length($values) {
+      $value: nth($values, $i);
+      @if type_of($value) == string {
+        $value: trim($value);
+      }
+      @if $value != "null" and $i == 1 {
+        // Set mobile-first-props
+        @include set-prop($key, $value);
+      } @else if $value != "null" and $i > 1 and length($sys-breakpoints) >= $i {
+        // Fill $responsive-props
+        $breakpoint: nth(map-keys($sys-breakpoints), $i);
+        $responsive-props: map-deep-set($responsive-props, $breakpoint $key, $value);
+      }
+    }
+  }
+  // Set media query values
+  @each $responsive-prop in $responsive-props {
+    $breakpoint: nth($responsive-prop, 1);
+    $pairs: nth($responsive-prop, 2);
+    @if length($pairs) != 0 {
+      $screen: map-get($sys-breakpoints, $breakpoint);
+      @media (min-width: $screen) {
+        @each $pair in $pairs {
+          $key: nth($pair, 1);
+          $value: nth($pair, 2);
+          @if $value != "null " {
+            @include set-prop($key, $value);
+          }
+        }
+      }
+    }
+  }
+}

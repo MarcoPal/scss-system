@@ -1,0 +1,7 @@
+@function trim($string) {
+  @return str-slice(
+      $string,
+      first-index($string, 'left'),
+      first-index($string, 'right')
+  );
+}

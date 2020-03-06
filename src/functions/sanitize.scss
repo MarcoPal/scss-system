@@ -1,0 +1,6 @@
+@function sanitize($value) {
+  @if type_of($value) == color or type_of($value) == number {
+    @return $value;
+  }
+  @return unquote($value);
+}
