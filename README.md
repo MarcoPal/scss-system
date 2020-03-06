@@ -68,7 +68,7 @@ Result:
 ```
 
 ### How it works
-As property, you can use a default CSS property or an [alias](#-aliases).  
+As property, you can use a default CSS property or an [alias](#aliases).  
 As value, you can use: a string, a color, a number, null or a list.
 
 What happen when you use a list?
