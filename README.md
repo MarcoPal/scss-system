@@ -68,7 +68,7 @@ Result:
 ```
 
 ### How it works
-As property, you can use a default CSS property or an [alias](#aliases).  
+As property, you can use a default CSS property or an [alias](#-aliases).  
 As value, you can use: a string, a color, a number, null or a list.
 
 What happen when you use a list?
@@ -111,7 +111,7 @@ font-size: 1rem;
 That's it!
 
 
-#Aliases
+# Aliases
 An alias is an abbreviation for one or more CSS properties.
 Here's a list of the available aliases
 ```
